@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proprio</title>
+    <meta
+      name="description"
+      content="Proprio: Latent Self-Scoring and Inference-Time Refinement for Physically Plausible Video Generation"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="upper-shell">
+        <header class="hero">
+          <nav class="topbar">
+            <div class="topbar__brand">Proprio</div>
+            <div class="topbar__links">
+              <a href="#overview">Overview</a>
+              <a href="#results">Results</a>
+            </div>
+          </nav>
+
+          <div class="hero__content">
+            <h1>
+              <span class="hero__title-main">🌀 Proprio</span>
+              <span class="hero__title-sub">Latent Self-Scoring and Inference-Time Refinement for Physically Plausible Video Generation</span>
+            </h1>
+            <p class="hero__authors">
+              <span class="hero__authors-names">Mariam Hassan <sup>1</sup>, Kaouther Messoud <sup>2</sup>, Wuyang Li <sup>1</sup>, Alexandre Alahi <sup>1</sup></span><br />
+              <sup>1</sup> École Polytechnique Fédérale de Lausanne (EPFL), <sup>2</sup> Télécom Paris, IP Paris<br />
+              <sup>1</sup> firstname.lastname@epfl.ch, <sup>2</sup> firstname.lastname@telecom-paris.fr<br />
+            </p>
+            <div class="hero__actions">
+              <a class="hero__button" href="#">Paper</a>
+              <a class="hero__button" href="https://github.com/vita-epfl/Proprio">Code</a>
+            </div>
+            <p class="hero__lede">
+              Side-by-side comparisons of baseline generations and Proprio-refined results.
+            </p>
+          </div>
+        </header>
+      </div>
+
+      <main>
+        <section id="overview" class="section section--abstract">
+          <div class="section-heading">
+            <p class="section-tag">Overview</p>
+            <h2>Abstract</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+             Modern video generative models produce visually impressive results, yet frequently violate basic physical principles. We propose Proprio, a training-free framework that enables a frozen video generator to assess and improve the physical plausibility of its own outputs. Inspired by \textit{proprioception}, the biological sense of one’s own movement, Proprio treats the model's flow residual under controlled latent perturbations as a self-scoring signal. Samples that are better explained by the generator's learned dynamics induce smaller and more stable residuals. We aggregate this signal across timesteps and perturbations, focus it on motion-relevant regions with a dynamic spatiotemporal mask, and use it for best-of-N search, gradient-based self-refinement, or both. Across text-to-video and image-to-video benchmarks, Proprio consistently improves physical plausibility, outperforming VLM-based scoring, and external world-model baselines in several settings. On TurboWan2.2, Proprio improves Physics-IQ from 32.2 to 37.5 (+16.5%) and VideoPhy2-hard physical commonsense from 45.6 to 55.0 (+20.6%). Human evaluation further shows that raters prefer Proprio-selected or refined videos for physical plausibility in roughly two-thirds of comparisons. These results suggest that frozen video generators contain actionable internal signals for evaluating and improving the physical plausibility of their own outputs. 
+            </p>
+          </div>
+        </section>
+
+        <section id="results" class="section">
+          <div class="section-heading">
+            <p class="section-tag">Benchmark</p>
+            <h2>Video Comparisons</h2>
+            <p class="section-copy">
+              Switch between PhysicsIQ (I2V) and Videophy2 (T2V) to compare baseline samples against Proprio refinements.
+            </p>
+          </div>
+          <div class="benchmark-switcher" role="tablist" aria-label="Benchmark selector">
+            <button class="benchmark-switcher__button is-active" type="button" data-benchmark="physiq">PhysicsIQ (I2V)</button>
+            <button class="benchmark-switcher__button" type="button" data-benchmark="vp2">Videophy2 (T2V)</button>
+          </div>
+          <div class="benchmark-panel is-active" id="panel-physiq">
+            <div class="comparison-grid" id="physiq-grid"></div>
+          </div>
+          <div class="benchmark-panel" id="panel-vp2">
+            <div class="comparison-grid" id="vp2-grid"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./static/js/index.js"></script>
+  </body>
+</html>
