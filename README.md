@@ -3,10 +3,10 @@
 <h1>🌀 Proprio</h1>
 <h3>Latent Self-Scoring and Inference-Time Refinement for Physically Plausible Video Generation</h3>
 
-Mariam Hassan · Kaouther Messoud · Wuyang Li · Alexandre Alahi  
+Mariam Hassan · Kaouther Messaoud · Wuyang Li · Alexandre Alahi  
 EPFL · Télécom Paris
 
-<a href=""><img src="https://img.shields.io/badge/arXiv-TBD-b31b1b"></a>
+<a href="https://arxiv.org/abs/2605.28230"><img src="https://img.shields.io/badge/arXiv-2605.28230-b31b1b"></a>
 <a href="https://vita-epfl.github.io/Proprio/"><img src="https://img.shields.io/badge/Project-Page-green"></a>
 
 </div>
