@@ -24,6 +24,7 @@
             <div class="topbar__brand">Proprio</div>
             <div class="topbar__links">
               <a href="#overview">Overview</a>
+              <a href="#method">Method</a>
               <a href="#results">Results</a>
             </div>
           </nav>
@@ -42,9 +43,6 @@
               <a class="hero__button" href="https://arxiv.org/abs/2605.28230">Paper</a>
               <a class="hero__button" href="https://github.com/vita-epfl/Proprio">Code</a>
             </div>
-            <p class="hero__lede">
-              Side-by-side comparisons of baseline generations and Proprio-refined results.
-            </p>
           </div>
         </header>
       </div>
@@ -53,14 +51,32 @@
         <section id="overview" class="section section--abstract">
           <div class="section-heading">
             <p class="section-tag">Overview</p>
-            <h2>Abstract</h2>
-          </div>
-          <div class="intro-copy">
-            <p>
-             Modern video generative models produce visually impressive results, yet frequently violate basic physical principles. We propose Proprio, a training-free framework that enables a frozen video generator to assess and improve the physical plausibility of its own outputs. Inspired by \textit{proprioception}, the biological sense of one’s own movement, Proprio treats the model's flow residual under controlled latent perturbations as a self-scoring signal. Samples that are better explained by the generator's learned dynamics induce smaller and more stable residuals. We aggregate this signal across timesteps and perturbations, focus it on motion-relevant regions with a dynamic spatiotemporal mask, and use it for best-of-N search, gradient-based self-refinement, or both. Across text-to-video and image-to-video benchmarks, Proprio consistently improves physical plausibility, outperforming VLM-based scoring, and external world-model baselines in several settings. On TurboWan2.2, Proprio improves Physics-IQ from 32.2 to 37.5 (+16.5%) and VideoPhy2-hard physical commonsense from 45.6 to 55.0 (+20.6%). Human evaluation further shows that raters prefer Proprio-selected or refined videos for physical plausibility in roughly two-thirds of comparisons. These results suggest that frozen video generators contain actionable internal signals for evaluating and improving the physical plausibility of their own outputs. 
-            </p>
+            <h2>Video generators can improve their own output.</h2>
+            <p class="section-copy">Video generators often produce videos that are visually appealing but physically implausible. Proprio allows them to score and enhance the physical plausibility of their own outputs at inference time.</p>
+            <p class="section-copy">Proprio measures how the generator responds to controlled changes in a video’s latent representation. Smaller, more stable denoising residuals indicate that a sample better fits the dynamics the generator has learned. The same signal can help select among candidates, refine a sample, or do both.</p>
           </div>
         </section>
+
+        <!-- <section id="method" class="section">
+          <div class="section-heading">
+            <p class="section-tag">Method</p>
+            <h2>How Proprio works</h2>
+          </div>
+          <ol class="section-copy intro-copy">
+            <li>
+              <strong>Perturb the latent</strong>
+              <p>Add controlled noise to the generated video’s latent representation at several timesteps.</p>
+            </li>
+            <li>
+              <strong>Score motion</strong>
+              <p>Measure the frozen generator’s denoising residuals and emphasize motion-relevant regions with a dynamic mask.</p>
+            </li>
+            <li>
+              <strong>Select or refine</strong>
+              <p>Use the score to rank candidate videos, guide gradient-based refinement, or combine the two.</p>
+            </li>
+          </ol>
+        </section> -->
 
         <section id="results" class="section">
           <div class="section-heading">
